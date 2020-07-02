@@ -1,0 +1,36 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Algoritmo - Victor</title>
+        <link rel="stylesheet" href="./css/estilos.css">
+    </head>
+    <body>
+        <div class="algoritmo">
+            <div>
+                <h1 class="algoritmo-titulo">Algoritmo</h1>
+            </div>
+            <form class="algoritmo-form">
+                <input class="form-input" id="palabra" type="text" placeholder="Ingresa la cadena"/>
+                <input class="form-button" onclick="mostrar()" value="Calcular" type="button"/>
+            </form>
+            <div class="resultado" id="texto">
+                
+            </div>
+        </div>
+        <script>
+            const button = document.querySelector(".form-button");
+            /* console.log(button); */
+            /* button.addEventListener('click', algoritmo); */
+            console.log(texto);
+            var palabra = document.getElementById('palabra').value;
+            
+            
+           function mostrar(){
+            var tagName = document.getElementById("palabra").value;
+            document.getElementById("texto").innerHTML=tagName;
+           }
+
+        </script>
+    </body>
+</html>
