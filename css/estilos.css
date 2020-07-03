@@ -7,6 +7,7 @@ body{
     background: #222831;
     color: white;
     font-size: 16px;
+    font-family: 'MuseoModerno', cursive;
 }
 
 .algoritmo{
@@ -16,6 +17,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 1em;
 }
 
 .algoritmo-titulo{
@@ -25,10 +27,10 @@ body{
 }
 
 .form-input{
-    width: 300px;
+    width: 400px;
     height: 2em;
     border-radius: 10px;
-    padding: 0em 0.2em;
+    padding: 0em 0.5em;
     border-style: none;
 }
 
@@ -44,7 +46,57 @@ body{
     border: 1px solid #026eff;
     color: white;
     width: 70%;
-    height: 150px;
+    height: 200px;
     padding: .2em .4em;
-    font-size: 1.3em;
+    font-size: 2em;
+}
+
+@media screen and (max-width: 767px){
+
+    .algoritmo{
+        height: 700px;
+    }
+
+    .algoritmo-titulo{
+        font-size: 6em;
+    }
+
+    .algoritmo-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-input{
+        width: 500px;
+        height: 3em;
+    }
+
+    .form-button{
+        margin: 1em 0em 0em 0em;
+        font-size: 1.1em;
+    }
+
+    .resultado{
+        font-size: 1.5em;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .form-input{
+        width: 350px;
+        height: 2.5em;
+    }
+    
+    .resultado{
+        font-size: 1em;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .algoritmo-titulo{
+        font-size: 4.5em;
+    }
 }

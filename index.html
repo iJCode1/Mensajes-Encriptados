@@ -2,8 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Algoritmo - Victor</title>
+        <title>Algoritmo</title>
         <link rel="stylesheet" href="./css/estilos.css">
+        <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width = device-width, initial-scale=1">
     </head>
     <body>
         <div class="algoritmo">
@@ -22,15 +24,96 @@
             const button = document.querySelector(".form-button");
             /* console.log(button); */
             /* button.addEventListener('click', algoritmo); */
-            console.log(texto);
+            
             var palabra = document.getElementById('palabra').value;
             
             
            function mostrar(){
             var tagName = document.getElementById("palabra").value;
-            document.getElementById("texto").innerHTML=tagName;
-           }
 
+            var caracter='';
+            var codigoASCII;
+            var intercambio1=0;
+            var intercambio2=0;
+            var intercambio3=0;
+            var intercambio4=0;
+            var Binario="";
+            var Encriptado="";
+            var key="";
+            var BinarioEncriptado="";
+
+            for (let i = 0; i < tagName.length; i++) {
+                caracter = tagName.charAt(i);
+                /* alert(typeof(caracter)); */
+                /* alert(caracter); */
+                //console.log(caracter);
+                codigoASCII = tagName.charAt(i).charCodeAt(0);
+                //console.log(codigoASCII);
+                /* alert(codigoASCII); */
+                /* alert(typeof(codigoASCII)); */
+                
+                Binario="";
+                for (let j = 7; j >=0; j--) {
+                    if(codigoASCII>=Math.pow(2,j)){
+                        codigoASCII -= Math.pow(2, j);
+                        //console.log(codigoASCII);
+                        Binario = Binario.concat("1"); 
+                        //console.log("Binario 1: "+Binario);
+                    }else {
+                        Binario = Binario.concat("0");
+                        //console.log("Binario 2: "+Binario);
+                    }
+                }
+                do {
+                    intercambio1 = (parseInt(Math.random() * 10));
+                } while (intercambio1 > 7);
+                do {
+                    intercambio2 = (parseInt(Math.random() * 10));
+                } while (intercambio2 > 7 || intercambio2 == intercambio1);
+                do {
+                    intercambio3 = (parseInt(Math.random() * 10));
+                } while (intercambio3 > 7 || intercambio3 == intercambio1 || intercambio3 == intercambio2);
+                do {
+                    intercambio4 = (parseInt(Math.random() * 10));
+                } while (intercambio4 > 7 || intercambio4 == intercambio1 || intercambio4 == intercambio2 || intercambio4 == intercambio3);
+
+                BinarioEncriptado = "";
+
+                for (let x = 0; x < 8; x++) {
+                    caracter = Binario.charAt(x);
+                    if (x == intercambio1) {
+                        caracter = Binario.charAt(intercambio2);
+                    }
+                    if (x == intercambio2) {
+                        caracter = Binario.charAt(intercambio1);
+                    }
+                    if (x == intercambio3) {
+                        caracter = Binario.charAt(intercambio4);
+                    }
+                    if (x == intercambio4) {
+                        caracter = Binario.charAt(intercambio3);
+                    }
+                    BinarioEncriptado = BinarioEncriptado.concat(caracter);
+                    
+                    
+                }
+                Encriptado = Encriptado.concat(BinarioEncriptado);
+                //console.log(Encriptado); 
+                /* console.log("Intercambio 1 "+intercambio1);
+                console.log("Intercambio 2 "+intercambio2);
+                console.log("Intercambio 3 "+intercambio3);
+                console.log("Intercambio 4 "+intercambio4);  */
+                var key = key.concat(intercambio1 , intercambio2 ,  intercambio3 ,  intercambio4);
+                
+                /* console.log("Intercambio 1 "+intercambio1);
+                console.log("Intercambio 2 "+intercambio2);
+                console.log("Intercambio 3 "+intercambio3);
+                console.log("Intercambio 4 "+intercambio4); */
+            }
+            document.getElementById("texto").innerHTML="El mensaje Encriptado es: "+Encriptado;
+            document.getElementById("texto").innerHTML+="<br/> La key es: "+ key;
+           }
+           
         </script>
     </body>
 </html>
