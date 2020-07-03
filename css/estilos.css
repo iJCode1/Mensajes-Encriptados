@@ -12,7 +12,7 @@ body{
 
 .algoritmo{
     display: flex;
-    height: 400px;
+    height: 500px;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -46,9 +46,10 @@ body{
     border: 1px solid #026eff;
     color: white;
     width: 70%;
-    height: 200px;
+    height: 250px;
     padding: .2em .4em;
     font-size: 2em;
+    overflow: scroll;
 }
 
 @media screen and (max-width: 767px){
@@ -91,7 +92,7 @@ body{
     
     .resultado{
         font-size: 1em;
-        height: 100px;
+        height: 120px;
     }
 }
 
